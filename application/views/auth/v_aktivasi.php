@@ -41,13 +41,19 @@
     } elseif (!empty($this->session->flashdata('failedActived'))) {
         $title = "Aktivasi gagal!";
         $text = ($this->session->flashdata('failedActived'));
-        $button = base_url('auth/ResendEmail');
+        $button = base_url('auth/emailSend');
         $txtButton = "Kirim Ulang Token";
         $icon = "fas fa-circle-exclamation";
+    } elseif (!empty($this->session->flashdata('tokenNotFound'))) {
+        $title = "Belum Aktivasi!";
+        $text = ($this->session->flashdata('tokenNotFound'));
+        $button = base_url('auth/emailSend/_?profile=' . $uid);
+        $txtButton = "Kirim ulang Token";
+        $icon = "fas fa-circle-exclamination";
     } elseif (!empty($this->session->flashdata('tokenDifferent'))) {
         $title = "Aktivasi gagal!";
         $text = ($this->session->flashdata('tokenDifferent'));
-        $button = base_url('auth/ResendEmail/_?profile=' . $uid);
+        $button = base_url('auth/emailSend/_?profile=' . $uid);
         $txtButton = "Kirim ulang Token";
         $icon = "fas fa-circle-exclamination";
     }

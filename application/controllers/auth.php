@@ -15,7 +15,11 @@ class auth extends CI_Controller
 
     public function login()
     {
-        $this->load->view('auth/v_login');
+        if ($this->session->get_userdata('logging') == true) {
+            redirect(base_url('main/dashboard'));
+        } else {
+            $this->load->view('auth/v_login');
+        }
     }
 
     public function register()
@@ -36,23 +40,29 @@ class auth extends CI_Controller
         if ($query->num_rows() > 0) {
             $data = $query->row();
             if (password_verify($this->input->post('password'), $data->password)) {
-                $data_session = array(
-                    'user' => $data->id_user,
-                    'name' => $data->nama_user,
-                    'status' => "logging"
-                );
-                $this->session->set_userdata($data_session);
+                if ($data->status_user == 1) {
+                    $data_session = array(
+                        'user' => $data->id_user,
+                        'name' => $data->nama_user,
+                        'logging' => TRUE
+                    );
+                    $this->session->set_userdata($data_session);
 
-                $login['info'] = true;
+                    $login['info'] = 1;
+                } else {
+                    // jika akun belum aktif
+                    $login['info'] = 2;
+                    $login['uid'] = $data->uid;
+                }
             } else {
                 // jika password salah
                 $login['flash'] = "Password Salah!!!";
-                $login['info'] = false;
+                $login['info'] = 0;
             }
         } else {
             // jika akun tidak ada
             $login['flash'] = "Akun tidak ada!!!";
-            $login['info'] = false;
+            $login['info'] = 0;
         }
 
         echo json_encode($login);
@@ -126,7 +136,7 @@ class auth extends CI_Controller
             }
         }
         $this->session->sess_destroy();
-        redirect(base_url('auth/login'));
+        redirect(base_url());
     }
 
     private function sendMail($user)

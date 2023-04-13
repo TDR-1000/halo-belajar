@@ -83,7 +83,7 @@
                 if (objResult.message == true) {
                     $('i').addClass('fas fa-check-circle');
                     $('#status').text('Email Terkirim');
-                    $('#message').text('Email telah dikirmkan pada ' + objResult.mailUser + ', Ayo cek email kamu dan aktivasi sekarang juga!')
+                    $('#message').text('Email telah dikrimkan pada ' + objResult.mailUser + ', Ayo cek email kamu dan aktivasi sekarang juga!')
                 } else if (objResult.message == false) {
                     $('i').addClass('fas fa-circle-exclamation');
                     $('#status').text('Email Gagal Terkirim!');

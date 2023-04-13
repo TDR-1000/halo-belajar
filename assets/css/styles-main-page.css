@@ -4625,6 +4625,10 @@ textarea.form-control-lg {
 .card-group > .card {
   margin-bottom: 0.75rem;
 }
+
+
+
+
 @media (min-width: 576px) {
   .card-group {
     display: flex;
@@ -5363,12 +5367,14 @@ textarea.form-control-lg {
 }
 
 .list-group-item-light {
-  color: #636464;
-  background-color: #fefefe;
+  color: #fff;
+  background-color: #569DAA
 }
+
+
 .list-group-item-light.list-group-item-action:hover, .list-group-item-light.list-group-item-action:focus {
-  color: #636464;
-  background-color: #e5e5e5;
+  color: #000;
+  background-color: #87CBB9;
 }
 .list-group-item-light.list-group-item-action.active {
   color: #fff;
@@ -7818,6 +7824,15 @@ textarea.form-control-lg {
 .bg-success {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-hb{
+  --bs-bg-opacity: 1;
+  background-color: #B9EDDD;
+}
+
+.bg-hb2{
+  background-color: #569DAA
 }
 
 .bg-info {
@@ -11327,3 +11342,5 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
     margin-left: -15rem;
   }
 }
+
+

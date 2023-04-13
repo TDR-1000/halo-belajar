@@ -196,8 +196,8 @@
                     },
                     function(data) {
                         var objResult = JSON.parse(data);
-
-                        if ((objResult.info == true)) {
+                        console.log(data);
+                        if ((objResult.info == 1)) {
                             setTimeout(function() {
                                 swal.fire({
                                     title: 'Berhasil Login',
@@ -208,7 +208,21 @@
                                 });
                             }, 10);
                             window.setTimeout(function() {
-                                window.location.replace('<?= base_url('main/home') ?>');
+                                window.location.replace('<?= base_url('main/dashboard') ?>');
+                            }, 2000);
+
+                        } else if ((objResult.info == 2)) {
+                            setTimeout(function() {
+                                swal.fire({
+                                    title: 'Berhasil Login',
+                                    text: 'Redirecting...',
+                                    icon: 'success',
+                                    timer: 3000,
+                                    showConfirmButton: false
+                                });
+                            }, 10);
+                            window.setTimeout(function() {
+                                window.location.replace('<?= base_url('auth/activatedAccount/_?profile=') ?>' + objResult.uid);
                             }, 2000);
 
                         } else {
