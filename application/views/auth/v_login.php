@@ -196,8 +196,7 @@
                     },
                     function(data) {
                         var objResult = JSON.parse(data);
-                        console.log(data);
-                        if ((objResult.info == 1)) {
+                        if ((objResult.info == 'loggedin')) {
                             setTimeout(function() {
                                 swal.fire({
                                     title: 'Berhasil Login',
@@ -208,10 +207,10 @@
                                 });
                             }, 10);
                             window.setTimeout(function() {
-                                window.location.replace('<?= base_url('main/dashboard') ?>');
+                                window.location.replace('<?= base_url('dashboard') ?>');
                             }, 2000);
 
-                        } else if ((objResult.info == 2)) {
+                        } else if ((objResult.info == 'notactive')) {
                             setTimeout(function() {
                                 swal.fire({
                                     title: 'Berhasil Login',

@@ -26,8 +26,6 @@
         </div>
     </section>
 
-    <a href="<?= base_url('auth/sendMail'); ?>">Kirim Email</a>
-
     <!-- ======= Menu Bar ======= -->
     <?php include('menu-bar.php'); ?>
 

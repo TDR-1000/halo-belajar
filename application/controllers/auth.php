@@ -15,8 +15,11 @@ class auth extends CI_Controller
 
     public function login()
     {
-        if ($this->session->get_userdata('logging') == true) {
-            redirect(base_url('main/dashboard'));
+
+        // var_dump($this->session->get_userdata('logging'));
+
+        if ($this->session->userdata('logging') == TRUE) {
+            redirect(base_url('dashboard'));
         } else {
             $this->load->view('auth/v_login');
         }
@@ -48,20 +51,20 @@ class auth extends CI_Controller
                     );
                     $this->session->set_userdata($data_session);
 
-                    $login['info'] = 1;
+                    $login['info'] = "loggedin";
                 } else {
                     // jika akun belum aktif
-                    $login['info'] = 2;
+                    $login['info'] = "notactive";
                     $login['uid'] = $data->uid;
                 }
             } else {
                 // jika password salah
                 $login['flash'] = "Password Salah!!!";
-                $login['info'] = 0;
+                $login['info'] = "passnotmatch";
             }
         } else {
             // jika akun tidak ada
-            $login['flash'] = "Akun tidak ada!!!";
+            $login['flash'] = "notfound";
             $login['info'] = 0;
         }
 
