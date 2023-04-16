@@ -95,7 +95,7 @@
                                 </div>
 
                                 <!-- Submit button -->
-                                <button type="button" id="btnSubmit" class="btn btn-primary btn-block">Register Sekarang</button>
+                                <button type="submit" id="btnSubmit" class="btn btn-primary btn-block">Register Sekarang</button>
                             </form>
                         </div>
 
@@ -195,7 +195,7 @@
         })
 
 
-        $('#btnSubmit').click(function() {
+        $('#formRegister').submit(function() {
 
             $checkNama = $('#checkNama').text()
             $valNama = $('input[name="nama"]').val();
@@ -213,6 +213,7 @@
                     icon: 'warning',
                     confirmButtonText: 'Oke'
                 })
+                return false;
             } else {
                 Swal.showLoading(Swal.getDenyButton())
                 $.post("<?= base_url('auth/register_action') ?>", {

@@ -92,7 +92,7 @@
                                 </div>
 
                                 <!-- Submit button -->
-                                <button type="button" id="btnSubmit" class="btn btn-primary btn-block">Login</button>
+                                <button type="submit" id="btnSubmit" class="btn btn-primary btn-block">Login</button>
                             </form>
                         </div>
 
@@ -173,7 +173,7 @@
         })
 
 
-        $('#btnSubmit').click(function() {
+        $('#formRegister').submit(function() {
 
             $checkEmail = $('#checkEmail').text()
             $valEmail = $('input[name="email"]').val();
@@ -188,6 +188,7 @@
                     icon: 'warning',
                     confirmButtonText: 'Oke'
                 })
+                return false;
             } else {
                 Swal.showLoading(Swal.getDenyButton())
                 $.post("<?= base_url('auth/login_action') ?>", {
