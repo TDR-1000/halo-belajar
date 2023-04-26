@@ -597,7 +597,7 @@ a:focus {
 }
 
 .bg-navbar {
-  background-color: #6777ef
+  background-color: #a6d1f5
 }
 
 .sidebar {
@@ -1091,8 +1091,8 @@ a:focus {
 }
 
 .sidebar-light .sidebar-brand {
-  color: #fafafa;
-  background-color: #4c60da
+  color: #858585;
+  background-color: #a6d1f5
 }
 
 .sidebar-light hr.sidebar-divider {
@@ -1917,4 +1917,18 @@ body.sidebar-toggled footer.sticky-footer {
   color: #fff;
   background-color: #3f51b5;
   border-color: #3f51b5
+}
+
+.table_data thead tr th{
+text-align: center;
+}
+
+.btn_submit{width: 100%;}
+
+pre {
+  white-space: pre-wrap;       /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }

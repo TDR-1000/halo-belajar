@@ -25,11 +25,10 @@ class dashboard extends CI_Controller
         $this->load->view('main/footer');
     }
 
-    public function user()
+    public function countUser()
     {
-        $this->load->view('main/head');
-        $this->load->view('main/menu');
-        $this->load->view('user/index');
-        $this->load->view('main/footer');
+        $query = $this->m_main->getUser();
+        $data['rowsUser'] = $query->num_rows();
+        echo json_encode($data);
     }
 }
